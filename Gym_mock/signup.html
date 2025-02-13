@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="signup.php" method="post" class="signup-form">
+        <input type="text" name="username" placeholder="Username" class="form-input" required>
+        <input type="email" name="email" placeholder="Email" class="form-input" required>
+        <input type="password" name="password" placeholder="Password" class="form-input" required>
+        <button type="submit">Sign Up</button>
+    </form>
+    
+
+    <style>
+        .signup-form {
+            max-width: 400px; /* Max width of the form */
+            margin: 0 auto; /* Center the form horizontally */
+            padding: 20px; /* Add some padding inside the form */
+            background-color: #f9f9f9; /* Light background color */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+        .form-input{
+            width: 100%; /* Make inputs fill the container */
+            padding: 10px; /* Add padding inside the inputs */
+            margin: 10px 0; /* Add space between inputs */
+            border: 1px solid #ccc; /* Light border */
+            border-radius: 4px; /* Rounded corners for inputs */
+            font-size: 16px; /* Set font size */
+            box-sizing: border-box; /* Prevents padding from affecting width */
+        }
+
+
+        
+    </style>
+</body>
+</html>
