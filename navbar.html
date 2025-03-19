@@ -1,0 +1,176 @@
+html[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --nav-bg: #0d2630;
+    --intro-text-bg: #000000;
+    --intro-text-text: #ffffff;
+}
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+nav {
+    background-color: var(--nav-bg);
+    /* rest of nav styles */
+}
+
+.hero {
+    background-color: var(--hero-bg);
+    color: var(--hero-text);
+    /* rest of hero styles */
+}
+    </style>
+    <nav>
+        <div class="logo">LOGO</div>
+        <div class="hamburger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <div class="nav-menu">
+            <div class="nav-links">
+                <a href="home.html"><div>HOME</div></a>
+                <a href="recipe2.html"><div>RECIPE</div></a>
+                <div>TIPS</div>
+                <div>SOCIAL</div>
+            </div>
+            <div class="nav-account">
+                <button class="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                    <span class="theme-text">Light Mode</span>
+                </button>
+                <a href="signup.html"><div>LOGIN</div></a>
+                <a href="signup.html"><div>SIGNUP</div></a>
+            </div>
+        </div>
+    </nav>
+    
+    <style>
+        nav {
+            background-color: midnightblue;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+        
+        .logo {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .nav-account {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .nav-links a, .nav-account a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        /* Media query for responsive design */
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+                z-index: 101;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                flex-direction: column;
+                background-color: midnightblue;
+                width: 100%;
+                height: 100vh;
+                top: 0;
+                left: -100%;
+                padding: 80px 30px 30px;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                z-index: 100;
+            }
+            
+            .nav-links, .nav-account {
+                flex-direction: column;
+                align-items: center;
+                margin-top: 20px;
+            }
+            
+            .nav-links div, .nav-account div, .nav-links a, .nav-account a {
+                margin: 10px 0;
+            }
+            
+            /* Class to show the menu when hamburger is clicked */
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            /* Hamburger animation when active */
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+        }
+    </style>
+    <style>
+        nav {
+        background-color:midnightblue;
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        padding: 30px;
+        }
+
+        .nav-links{
+            display: flex;
+            gap: 1rem;
+            text-decoration: none;
+
+        }
+        .nav-account {
+            display: flex;
+            gap: 1rem;
+        }
+        .nav-links a {
+            color: inherit; /* Inherit the color from the parent element */
+            text-decoration: none; /* Remove underline */
+}
+    .nav-account a {
+        color: inherit; /* Inherit the color from the parent element */
+        text-decoration: none; /* Remove underline */
