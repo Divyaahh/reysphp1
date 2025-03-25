@@ -1,0 +1,60 @@
+ <div class="main-content">
+            
+            <div class="form-section">
+                <h1>Book a consultation with us</h1>
+                <form action="booking.php" method="post">
+                    <input type="text" name="name" placeholder="Enter your name" required>
+                    <input type="tel" name="phone_number" placeholder="Phone number" required>
+                    <input type="text" name="query" placeholder="Enter your query here" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+            
+            <div class="video-section">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/i1FeOOhNnwU?si=DcoDJ-bb97LsHNCY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+        </div>
+
+
+
+
+        <?php
+// Start session to potentially store messages
+session_start();
+
+// Check if the form was submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Validate required fields
+    if (empty($_POST['name']) || empty($_POST['phone_number']) || empty($_POST['query'])) {
+        echo "All fields are required.";
+        exit;
+    }
+    
+    // Get form data and sanitize inputs
+    $name = $_POST['name'];
+    $phone = $_POST['phone_number'];
+    $query = $_POST['query'];
+    
+    // Including the database connection file
+    require_once 'db.php';
+    
+    // Sanitize inputs to prevent SQL injection
+    $name = mysqli_real_escape_string($connection, $name);
+    $phone = mysqli_real_escape_string($connection, $phone);
+    $query = mysqli_real_escape_string($connection, $query);
+    
+    // SQL query to insert data
+    $sql = "INSERT INTO bookings (name, phone_number, query) 
+            VALUES ('$name', '$phone', '$query')";
+    
+    // Execute query and check if successful
+    if (mysqli_query($connection, $sql)) {
+        // the users will get this message if the query was successfully sent
+        echo "Query sent";
+    } else {
+        // Error message
+        echo "Sorry, there was an error processing your booking: " . mysqli_error($connection);
+    }
+}
+?>
+
